@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactable Text Box</title>
+		 <style>
+        body {
+            background-color: #333; /* Dark background color */
+            color: #fff; /* Light text color */
+        }
+
+        #text-box {
+            background-color: #222; /* Dark text box background */
+            color: #fff; /* Light text color inside the text box */
+            border: 1px solid #444; /* Dark border */
+						 font-size: 48px; /* Adjust the font size to your preference */
+						 resize: none; /* Make the text box non-resizable */
+        }
+    </style>
+</head>
+<body>
+    <textarea id="text-box" rows="70" cols="50"><Press enter>
+</textarea>
+
+    <script>
+        const textBox = document.getElementById("text-box");
+        let currentName = "<Josh>";
+
+        textBox.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                textBox.value += currentName + "\n";
+                toggleName();
+                event.preventDefault();
+            }
+        });
+
+        function toggleName() {
+            currentName = currentName === "<Josh>" ? "<Sam>" : "<Josh>";
+        }
+    </script>
+</body>
+</html>
